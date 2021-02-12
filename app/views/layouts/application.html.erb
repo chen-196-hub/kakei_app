@@ -11,6 +11,28 @@
   </head>
 
   <body>
+    <header>
+      <div class="header-logo">
+        <!-- <% if @current_user %>
+          <%= link_to("TweetApp", "/posts/index") %>
+        <% else %>
+          <%= link_to("TweetApp", "/") %>
+        <% end %> -->
+        <%= link_to("KakeiNet", "/") %>
+      </div>
+      <ul class="header-menus">
+        <li>
+          <%= link_to("KakeiNetとは？", "/about") %>
+        </li>
+        <li>
+          新規登録
+        </li>
+        <li>
+          ログイン
+        </li>
+      </ul>
+    </header>
+
     <%= yield %>
   </body>
 </html>
