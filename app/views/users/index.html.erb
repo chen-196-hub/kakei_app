@@ -1,0 +1,15 @@
+<div class="main users-index">
+  <div class="container">
+    <h1 class="users-heading">メンバー一覧</h1>
+    <% @users.each do |user| %>
+      <div class="users-index-item">
+        <div class="user-left">
+          
+        </div>
+        <div class="user-right">
+          <%= user.name %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -105,6 +105,10 @@ header {
   font-size: 13px;
   color: #0a0a23;
 }
+.header-menus a:hover{
+  color:crimson;
+  font-size: 15px;
+}
 
 .header-menus .fa {
   padding-right: 5px;
@@ -173,4 +177,69 @@ header {
 
 .about-img {
   width: 84%;
+}
+
+
+
+/* フォーム================================ */
+.form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 2px 6px #c1ced7;
+}
+
+.form-heading {
+  font-weight: 300;
+  margin: 60px 0 20px;
+  font-size: 24px;
+  color: #bcc8d4;
+}
+
+.form-body {
+  padding: 30px;
+}
+
+.form-error {
+  color: #ff4d75;
+}
+
+.form input {
+  width: 100%;
+  border: 1px solid #0a0a23;
+  padding: 10px;
+  color: #57575f;
+  font-size: 16px;
+  letter-spacing: 2px;
+  border-radius: 2px;
+}
+
+.form textarea {
+  width: 100%;
+  min-height: 110px;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.form input[type="submit"] {
+  background-color: #f5f5dc;
+  color: black;
+  cursor: pointer;
+  font-weight: 400;
+  width: 120px;
+  border-radius: 2px;
+  margin-top: 8px;
+  margin-bottom: 0;
+  float: right;
+  &:hover {
+    background-color: gainsboro;
+    font-weight: bolder;
+  }
+}
+
+
+.form-body:after {
+  content: '';
+  display: table;
+  clear: both;
 }

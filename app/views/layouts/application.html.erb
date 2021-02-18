@@ -18,17 +18,23 @@
         <% else %>
           <%= link_to("TweetApp", "/") %>
         <% end %> -->
-        <%= link_to("KakeiNet", "/") %>
+        <%= link_to("KakeiNet", root_path) %>
       </div>
       <ul class="header-menus">
         <li>
           <%= link_to("KakeiNetとは？", "/about") %>
         </li>
         <li>
-          新規登録
+         <%= link_to(" メンバー一覧 ", "/users/index") %>
         </li>
-        <li>
+        <!-- <li>
+          新規登録
+        </li> -->
+        <!-- <li>
           ログイン
+        </li> -->
+        <li>
+          <%= link_to("TODO", "/tasks/index") %>
         </li>
       </ul>
     </header>
