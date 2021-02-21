@@ -2,43 +2,64 @@
   <div class="container">
     <div class="form-heading">家計内容を編集</div>
     <div class="form users-form">
-     
-      
+
+
       <div class="form-body">
-        <table>
-          <tr>
-            <th>給料：</th><td><input name = "income" value = ""></td>
-          </tr>
-          <tr>
-            <th>ボーナス：</th><td><input name = "bonus" value = ""></td>
-          </tr>
-          <tr>
-            <th>家賃、住宅ローン：</th><td><input name = "houst_ret" value = ""></td>
-          </tr>
-          <tr>
-            <th>生活費：</th><td><input name = "living_cost" value = ""></td>
-          </tr>
-          <tr>
-            <th>水道代：</th><td><input name = "water_rate" value = ""></td>
-          </tr>
-          <tr>
-            <th>電気代：</th><td><input name = "power_rate" value = ""></td>
-          </tr>
-          <tr>
-            <th>ガス代：</th><td><input name = "gas_rate" value = ""></td>
-          </tr>
-          <tr>
-            <th>通信費（電話）：</th><td><input name = "tel_bill" value = ""></td>
-          </tr>
-          <tr>
-            <th>通信費（ネット）：</th><td><input name = "net_bill" value = ""></td>
-          </tr>
-          <tr>
-            <th>交通費：</th><td><input name = "traffic_bill" value = ""></td>
-          </tr>
-        </table>
-        <input type="submit" value="確認">
+        <%= form_tag("/household/update") do %>
+          <table>
+            <tr>
+              <!-- .to_s(:delimited) -->
+              <th>給料：</th>
+              <td><input type="number" name="income" value="<%=@kakei.income %>" style="text-align:right"></td>
+            </tr>
+            <tr>
+              <th>ボーナス：</th>
+              <td><input type="number" name="bonus" value="<%=@kakei.bonus %>" style="text-align:right"></td>
+            </tr>
+            <tr>
+              <th>家賃、住宅ローン：</th>
+              <td><input type="number" name="houst_ret" value="<%=@kakei.houst_ret%>" style="text-align:right">
+              </td>
+            </tr>
+            <tr>
+              <th>生活費：</th>
+              <td><input type="number" name="living_cost" value="<%=@kakei.living_cost %>"
+                  style="text-align:right"></td>
+            </tr>
+            <tr>
+              <th>水道代：</th>
+              <td><input type="number" name="water_rate" value="<%=@kakei.water_rate %>" style="text-align:right">
+              </td>
+            </tr>
+            <tr>
+              <th>電気代：</th>
+              <td><input type="number" name="power_rate" value="<%=@kakei.power_rate %>" style="text-align:right">
+              </td>
+            </tr>
+            <tr>
+              <th>ガス代：</th>
+              <td><input type="number" name="gas_rate" value="<%=@kakei.gas_rate %>" style="text-align:right">
+              </td>
+            </tr>
+            <tr>
+              <th>通信費（電話）：</th>
+              <td><input type="number" name="tel_bill" value="<%=@kakei.tel_bill %>" style="text-align:right">
+              </td>
+            </tr>
+            <tr>
+              <th>通信費（ネット）：</th>
+              <td><input type="number" name="net_bill" value="<%=@kakei.net_bill %>"
+                  style="text-align:right"></td>
+            </tr>
+            <tr>
+              <th>交通費：</th>
+              <td><input type="number" name="traffic_bill" value="<%=@kakei.traffic_bill %>"
+                  style="text-align:right"></td>
+            </tr>
+          </table>
+          <input type="submit" value="確認">
       </div>
+      <% end %>
     </div>
   </div>
 </div>

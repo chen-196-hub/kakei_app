@@ -15,7 +15,10 @@ class UsersController < ApplicationController
       email: params[:email],
       password: params[:password]
     )
-    if @user.save 
+    
+    if @user.save
+      @house = Household.new(user_id: @user.id)
+      @house.save
       session[:user_id] = @user.id
       flash[:notice] = "登録できました！！"
       redirect_to("/tasks/index")

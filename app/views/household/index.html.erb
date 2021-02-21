@@ -4,22 +4,27 @@
       <h1 class="form-heading">家計</h1>
         <%= link_to "編集" , "/household/edit" %>
     </div>
+    <% @kakei.errors.full_messages.each do |message| %>
+          <div class="form-error">
+            <%= message %>
+          </div>
+        <% end %>
     <table>
       <tr class="posts-index-item">
         <th>収入：</th>
         <td>
-          <%=@totalincome.to_s(:delimited) %>
+          <%=@totalincome.to_s(:delimited)%> 
         </td>
       </tr>
       <tr class="posts-index-item">
         <th>支出：</th>
-        <td>-<%=@totalcost.to_s(:delimited)%>
+        <td><%=@totalcost.to_s(:delimited)%>
         </td>
       </tr>
       <tr class="posts-index-item">
         <th>合計：</th>
         <td>
-          <%=@total.to_s(:delimited) %>
+          <%=@total.to_s(:delimited)%>
         </td>
       </tr>
       <tr class="posts-index-item">

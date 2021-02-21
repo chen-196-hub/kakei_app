@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get "household/edit" => "household#edit"
+  post "household/update" =>"household#update"
   get 'household/index'
   root 'home#top'
   get 'users/index' =>"users#index"

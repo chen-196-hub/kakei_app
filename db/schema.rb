@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_20_084536) do
+ActiveRecord::Schema.define(version: 2021_02_21_021304) do
 
   create_table "households", force: :cascade do |t|
     t.integer "income", default: 0
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2021_02_20_084536) do
     t.integer "traffic_bill", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
   end
 
   create_table "tasks", force: :cascade do |t|
