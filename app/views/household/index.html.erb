@@ -1,0 +1,84 @@
+<div class="main posts-index">
+  <div class="container">
+    <div class="from">
+      <h1 class="form-heading">家計</h1>
+        <%= link_to "編集" , "/household/edit" %>
+    </div>
+    <table>
+      <tr class="posts-index-item">
+        <th>収入：</th>
+        <td>
+          <%=@totalincome.to_s(:delimited) %>
+        </td>
+      </tr>
+      <tr class="posts-index-item">
+        <th>支出：</th>
+        <td>-<%=@totalcost.to_s(:delimited)%>
+        </td>
+      </tr>
+      <tr class="posts-index-item">
+        <th>合計：</th>
+        <td>
+          <%=@total.to_s(:delimited) %>
+        </td>
+      </tr>
+      <tr class="posts-index-item">
+        <th></th>
+        <td></td>
+      </tr>
+
+      <tr class="posts-index-item">
+        <th>給料：</th>
+        <td>
+          <%=@kakei.income.to_s(:delimited) %>
+        </td>
+      </tr>
+      <tr class="posts-index-item">
+        <th>ボーナス：</th>
+        <td>
+          <%=@kakei.bonus.to_s(:delimited) %>
+        </td>
+      </tr>
+      <tr class="posts-index-item">
+        <th>家賃、住宅ローン：</th>
+        <td>-<%=@kakei.houst_ret.to_s(:delimited) %>
+        </td>
+      </tr>
+      <tr class="posts-index-item">
+        <th>生活費：</th>
+        <td>-<%=@kakei.living_cost.to_s(:delimited) %>
+        </td>
+      </tr>
+      <tr class="posts-index-item">
+        <th>水道代：</th>
+        <td>-<%=@kakei.water_rate.to_s(:delimited) %>
+        </td>
+      </tr>
+      <tr class="posts-index-item">
+        <th>電気代：</th>
+        <td>-<%=@kakei.power_rate.to_s(:delimited) %>
+        </td>
+      </tr>
+      <tr class="posts-index-item">
+        <th>ガス代：</th>
+        <td>-<%=@kakei.gas_rate.to_s(:delimited) %>
+        </td>
+      </tr>
+      <tr class="posts-index-item">
+        <th>通信費（電話）：</th>
+        <td>-<%=@kakei.tel_bill.to_s(:delimited) %>
+        </td>
+      </tr>
+      <tr class="posts-index-item">
+        <th>通信費（ネット）：</th>
+        <td>-<%=@kakei.net_bill.to_s(:delimited) %>
+        </td>
+      </tr>
+      <tr class="posts-index-item">
+        <th>交通費：</th>
+        <td>-<%=@kakei.traffic_bill.to_s(:delimited) %>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

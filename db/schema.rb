@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_14_100434) do
+ActiveRecord::Schema.define(version: 2021_02_20_084536) do
 
-# Could not dump table "table1" because of following StandardError
-#   Unknown type 'str' for column 'name'
-
-# Could not dump table "table2" because of following StandardError
-#   Unknown type 'str' for column 'email'
+  create_table "households", force: :cascade do |t|
+    t.integer "income", default: 0
+    t.integer "bonus", default: 0
+    t.integer "houst_ret", default: 0
+    t.integer "living_cost", default: 0
+    t.integer "water_rate", default: 0
+    t.integer "power_rate", default: 0
+    t.integer "gas_rate", default: 0
+    t.integer "tel_bill", default: 0
+    t.integer "net_bill", default: 0
+    t.integer "traffic_bill", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "tasks", force: :cascade do |t|
     t.text "content"
@@ -29,6 +38,7 @@ ActiveRecord::Schema.define(version: 2021_02_14_100434) do
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest"
   end
 
 end

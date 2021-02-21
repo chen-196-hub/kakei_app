@@ -21,11 +21,11 @@
     <div>
     <% @todolist.each do |todo| %>
       <div class="posts-index-item">
-        <div>
+        
           <%= link_to("✔︎", "#") %>
           <%= link_to("✖️", "/tasks/#{todo.id}/destroy") %>
           <%= link_to("編集", "#") %>
-        </div>
+        
         <%=  todo.content %>
         <div style="color: lightgray;">
           <%=  todo.created_at %>

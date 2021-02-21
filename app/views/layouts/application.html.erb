@@ -22,22 +22,36 @@
       </div>
       <ul class="header-menus">
         <li>
+          ログインしてるID<%= session[:user_id]%>
+        </li>
+        <li>
           <%= link_to("KakeiNetとは？", "/about") %>
         </li>
         <li>
-         <%= link_to(" メンバー一覧 ", "/users/index") %>
+         <%= link_to("メンバー一覧", "/users/index") %>
         </li>
-        <!-- <li>
-          新規登録
-        </li> -->
-        <!-- <li>
-          ログイン
-        </li> -->
+        <li>
+          <%= link_to("新規登録", "/users/new") %>
+        </li>
+        <li>
+         <%= link_to(" ログイン", "/login") %>
+        </li>
+        <li>
+         <%= link_to(" ログアウト", "/logout") %>
+        </li>
         <li>
           <%= link_to("TODO", "/tasks/index") %>
         </li>
+        <li>
+          <%= link_to("家計", "/household/index") %>
+        </li>
       </ul>
     </header>
+    <% if flash[:notice]%>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
 
     <%= yield %>
   </body>

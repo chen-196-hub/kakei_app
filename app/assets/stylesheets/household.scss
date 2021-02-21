@@ -1,0 +1,31 @@
+// Place all the styles related to the Household controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+
+.posts-index-item {
+  padding: 20px 30px;
+  background-color: white;
+  overflow: hidden;
+  box-shadow: 0 2px 6px #c1ced7;
+}
+
+table {
+  
+  min-width: 570px;
+  border: 0px solid white;
+  // height: 50px;
+  tr {
+    padding: 20px 30px;
+    border: white;
+    height: 50px;
+    
+    border: none;
+  }
+  td{
+    padding-right: 40px;
+    text-align: right;
+    border: none;
+  }
+}
