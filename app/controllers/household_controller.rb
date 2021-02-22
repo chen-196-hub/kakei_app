@@ -1,5 +1,6 @@
 class HouseholdController < ApplicationController
-  
+  before_action :set_current_user
+  before_action :authenticate_user,{only:[:index,:edit,:update]}
   def index
     @kakei = Household.find_by(id:session[:user_id])
     @totalincome = @kakei.income + @kakei.bonus

@@ -1,0 +1,20 @@
+<div class="main posts-index">
+  <div class="container">
+
+    <h1 class="form-heading">DONE-LIST</h1>
+    <div>
+    <% @done_list.each do |index| %>
+      <div class="posts-index-item">
+        <div>
+          <%= link_to("戻す", "/tasks/#{index.id}/undone") %>｜
+          <%= link_to("✖️", "/tasks/#{index.id}/destroy") %>
+        </div>
+          <s><%=  index.content %></s>
+        <div style="color: lightgray;">
+          <%=  index.created_at %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  </div>
+</div>

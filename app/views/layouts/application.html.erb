@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TheKakeiApp</title>
+    <title>KakeiNet</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -22,13 +22,29 @@
       </div>
       <ul class="header-menus">
         <li>
-          ログインしてるID<%= session[:user_id]%>
+          <%if @current_user %>
+          ようこそ！<%= @current_user.name%>
+          <% end %>
+        </li>
+        <% if @current_user %>
+        <li>
+          <%= link_to("メンバー一覧", "/users/index") %>
         </li>
         <li>
+          <%= link_to("TODO", "/tasks/index") %>
+        </li>
+        <li>
+          <%= link_to("DONE", "/tasks/done_index") %>
+        </li>
+        <li>
+          <%= link_to("家計", "/household/index") %>
+        </li>
+        <li>
+          <%= link_to(" ログアウト", "/logout") %>
+         </li>
+         <% else %>
+         <li>
           <%= link_to("KakeiNetとは？", "/about") %>
-        </li>
-        <li>
-         <%= link_to("メンバー一覧", "/users/index") %>
         </li>
         <li>
           <%= link_to("新規登録", "/users/new") %>
@@ -36,15 +52,7 @@
         <li>
          <%= link_to(" ログイン", "/login") %>
         </li>
-        <li>
-         <%= link_to(" ログアウト", "/logout") %>
-        </li>
-        <li>
-          <%= link_to("TODO", "/tasks/index") %>
-        </li>
-        <li>
-          <%= link_to("家計", "/household/index") %>
-        </li>
+        <% end %>
       </ul>
     </header>
     <% if flash[:notice]%>
