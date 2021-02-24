@@ -45,5 +45,10 @@ class TasksController < ApplicationController
     @undonetask.destroy
     redirect_to("/tasks/index")
   end
+  def done_task_destroy
+    @task = DoneTask.find_by(id:params[:id])
+    @task.destroy 
+    redirect_to('/tasks/done_index')
+  end
   
 end

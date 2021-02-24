@@ -7,7 +7,7 @@
       <div class="posts-index-item">
         <div>
           <%= link_to("戻す", "/tasks/#{index.id}/undone") %>｜
-          <%= link_to("✖️", "/tasks/#{index.id}/destroy") %>
+          <%= link_to("✖️", "/tasks/#{index.id}/done_task_destroy") %>
         </div>
           <s><%=  index.content %></s>
         <div style="color: lightgray;">

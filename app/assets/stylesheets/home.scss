@@ -74,6 +74,18 @@ header {
   width: 100%;
 }
 
+
+.header-name {
+  margin: auto;
+  color: black;
+  text-align: center;
+  line-height: 64px;
+  a{
+    font-size: 24px;
+  }
+}
+
+
 .header-logo {
   float: left;
   padding-left: 20px;
@@ -87,41 +99,266 @@ header {
   font-size: 22px;
 }
 
-.header-menus {
+// .header-menus {
+//   float: right;
+//   padding-right: 20px;
+// }
+
+// .header-menus li {
+//   float: left;
+//   line-height: 64px;
+//   font-size: 13px;
+//   color:#0a0a23;
+//   padding-left: 15px;
+// }
+
+// .header-menus a {
+//   float: left;
+//   font-size: 13px;
+//   color: #0a0a23;
+// }
+// .header-menus a:hover{
+//   color:crimson;
+//   font-size: 15px;
+// }
+
+// .header-menus .fa {
+//   padding-right: 5px;
+// }
+
+// .header-menus input[type="submit"] {
+//   padding: 0 20px;
+//   float: left;
+//   line-height: 64px;
+//   color: white;
+//   margin: 0;
+//   font-size: 13px;
+// }
+
+
+
+
+
+
+
+/* リセットCSS */
+
+button {
+  -webkit-appearance: none;
+  appearance: none;
+  vertical-align: middle;
+  border: 0;
+  background: transparent;
+  outline: 0;
+  border-radius: 0;
+  text-align: inherit;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+/**************** 以下、ハンバーガーボタンのスタイリング ****************/
+.btn {
+  /* ボタンの配置位置  */
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  /* ボタンの大きさ  */
+  width: 48px;
+  height: 48px;
+  /* バーガーの線をボタン範囲の中心に配置 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 最前面に */
+  z-index: 10;
+}
+
+/***** 真ん中のバーガー線 *****/
+.btn-line {
+  /* 線の長さと高さ */
+  width: 100%;
+  height: 4px;
+  /* バーガー線の色 */
+  background-color: #333;
+  /* バーガー線の位置基準として設定 */
+  position: relative;
+  transition: .2s;
+}
+
+/***** 上下のバーガー線 *****/
+.btn-line::before,
+.btn-line::after {
+  /* 基準線と同じ大きさと色 */
+  position: absolute;
+  transition: .5s;
+}
+
+
+.btn-line::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  /* 上の線の位置 */
+  transform: translateY(-16px);
+}
+
+
+.btn-line::after {
+  content: "menu";
+  /* 下の線の位置 */
+  display: block;
+  width: 100%;
+  text-align: center;
+  transform: translateY(8px);
+}
+
+/***** メニューオープン時 *****/
+.btn-line.open {
+  transition: .5s;
+}
+
+.btn-line.open::before {
+  content: "";
+  transform: translateY(0);
+}
+
+.btn-line.open::after {
+  content: "close";
+}
+/* ここまでボタンアニメーション */
+
+/**************** ここまで、ハンバーガーボタンのスタイリング ****************/
+
+
+/**************** 以下、メニューのスタイリング ****************/
+.menu {
   float: right;
-  padding-right: 20px;
+  position: fixed;
+  /* メニューの位置マイナス指定で画面外に */
+  right: -100%;
+  width: 70%;
+  height: 50vh;
+  /* メニューを縦に */
+  display: flex;
+  flex-direction: column;
+  color: #050404;
+  background-color:rgba(245,245,220,1);
+  opacity: 0.7;
+  transition: .3s;
 }
 
-.header-menus li {
-  float: left;
-  line-height: 64px;
-  font-size: 13px;
-  color:#0a0a23;
-  padding-left: 15px;
+.menu-list {
+  width: 100%;
+  height: 100%;
+  /* メニューテキスト位置をリスト内中心に */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.header-menus a {
-  float: left;
-  font-size: 13px;
-  color: #0a0a23;
-}
-.header-menus a:hover{
-  color:crimson;
-  font-size: 15px;
+.menu-list:hover {
+  color: #333;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: .3s;
+  cursor: pointer;
 }
 
-.header-menus .fa {
-  padding-right: 5px;
+
+/***** メニューオープン時位置0にして画面内に *****/
+.menu.open {
+  position: absolute;
+  right: 0;
 }
 
-.header-menus input[type="submit"] {
-  padding: 0 20px;
-  float: left;
-  line-height: 64px;
-  color: white;
-  margin: 0;
-  font-size: 13px;
+
+
+
+
+
+@media screen and (min-width: 864px) {
+  .btn {
+    display: none;
+  }
+  .header-name{
+    padding-right: 20%;
+  }
+  .menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 64px;
+    /* メニューを横に */
+    display: flex;
+    flex-direction: row;
+  }
+
+  .menu {
+
+    display: flex;
+    flex-direction: row;
+
+    float: right;
+    padding-right: 20px;
+  }
+
+  .menu li {
+    float: left;
+    line-height: 64px;
+    font-size: 13px;
+    color:#0a0a23;
+    padding-left: 15px;
+  }
+
+  .menu a {
+    float: left;
+    font-size: 13px;
+    color: #0a0a23;
+  }
+  .menu a:hover{
+    color:crimson;
+    font-size: 15px;
+  }
+
+  .menu .fa {
+    padding-right: 5px;
+  }
+
+  .menu input[type="submit"] {
+    padding: 0 20px;
+    float: left;
+    line-height: 64px;
+    color: white;
+    margin: 0;
+    font-size: 13px;
+  }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* top ================================ */
 
@@ -258,3 +495,5 @@ header {
   border-radius: 0 0 2px 2px;
   font-size: 14px;
 }
+
+

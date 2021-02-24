@@ -13,7 +13,7 @@
 
 table {
   
-  min-width: 570px;
+  min-width: 100%;
   border: 0px solid white;
   // height: 50px;
   tr {
@@ -24,7 +24,7 @@ table {
     border: none;
   }
   td{
-    padding-right: 40px;
+    padding-right: 20px;
     text-align: right;
     border: none;
   }

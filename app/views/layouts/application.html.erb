@@ -13,43 +13,54 @@
   <body>
     <header>
       <div class="header-logo">
-        <!-- <% if @current_user %>
-          <%= link_to("TweetApp", "/user/show") %>
-        <% else %>
-          <%= link_to("TweetApp", "/") %>
-        <% end %> -->
-        <%= link_to("KakeiNet", root_path) %>
-      </div>
-      <ul class="header-menus">
-        <li>
-          <%if @current_user %>
-          ようこそ！<%= @current_user.name%>
-          <% end %>
-        </li>
         <% if @current_user %>
-        <li>
-          <%= link_to("メンバー一覧", "/users/index") %>
+          <%= link_to("KakeiNet", "/tasks/index") %>
+        <% else %>
+          <%= link_to("KakeiNet", root_path) %>
+        <% end %>
+        
+      </div>
+      <button type="button" class="btn js-btn">
+        <span class="btn-line"></span>
+      </button>
+
+      
+          <div class="header-name">
+            <a>
+              <%if @current_user %>
+              <%= @current_user.name%>
+              <% end %>
+            </a>
+          </div>
+        <% if @current_user %>
+      <ul class="menu">
+        
+        <li class="menu-list">
+          <%= link_to("伝言板", "/message_board/index") %>
         </li>
-        <li>
+        <li class="menu-list">
+          <%= link_to("グループ", "/users/index") %>
+        </li>
+        <li class="menu-list">
           <%= link_to("TODO", "/tasks/index") %>
         </li>
-        <li>
+        <li class="menu-list">
           <%= link_to("DONE", "/tasks/done_index") %>
         </li>
-        <li>
+        <li class="menu-list">
           <%= link_to("家計", "/household/index") %>
         </li>
-        <li>
-          <%= link_to(" ログアウト", "/logout") %>
+        <li class="menu-list">
+          <%= link_to(" Logout", "/logout") %>
          </li>
          <% else %>
-         <li>
+         <li class="menu-list">
           <%= link_to("KakeiNetとは？", "/about") %>
         </li>
-        <li>
+        <li class="menu-list">
           <%= link_to("新規登録", "/users/new") %>
         </li>
-        <li>
+        <li class="menu-list">
          <%= link_to(" ログイン", "/login") %>
         </li>
         <% end %>

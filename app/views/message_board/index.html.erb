@@ -1,0 +1,22 @@
+<div class="main posts-index">
+  <div class="container">
+
+    <h1 class="form-heading">伝言板</h1>
+    <%= form_tag("/message-board/create") do %>
+      <div class="form">
+        <div class="form-body">
+          
+              <div class="form-error">
+               
+              </div>
+
+          <textarea name="content"></textarea>
+          <input type="submit" value="メモする">
+        </div>
+      </div>
+    <% end %>
+
+    <div>
+  </div>
+  </div>
+</div>
