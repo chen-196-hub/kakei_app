@@ -1,0 +1,39 @@
+<div class="main users-index">
+  <div class="container">
+    <h1 class="users-heading"><%=@group.name%>のメンバー</h1>
+    <% @group_users.each do |user| %>
+      <%@user = User.find_by(id:user.user_id)%>
+      <div class="users-index-item">
+        <div class="user-left">
+          <% if session[:user_id] == @group.user_id.to_i && user.user_id.to_i != session[:user_id] %>
+          <%= link_to "✖️", "/groups/#{@group.id}/show/#{user.user_id}/user_destroy" , data: {confirm: "このユーザーをグループメンバーから外せせますか？"}%>
+          <% end %>
+        </div>
+        <div class="user-right">
+          <%= @user.name %>
+        </div>
+      </div>
+    <% end %>
+    <% if session[:user_id] == @group.user_id.to_i %>
+      <h1 class="form-heading-2">メンバー追加</h1>
+      <div class="form">
+        <%= form_tag("/groups/#{@group.id}/create_user") do %>
+        <table>
+          <tr>
+            <th >追加したいメンバーのEmail</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th style="padding-left: 10%;">
+              <input type="text" name="email" placeholder="ex:123@example.com" style="padding-left: 10%;">
+            </th>
+            <td>
+              <input type="submit" value="追加" style="margin-top: 0;" >
+            </td>
+          </tr>
+        </table>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

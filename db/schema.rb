@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_23_045129) do
+ActiveRecord::Schema.define(version: 2021_02_25_085356) do
 
   create_table "done_tasks", force: :cascade do |t|
     t.text "content"
@@ -24,6 +24,20 @@ ActiveRecord::Schema.define(version: 2021_02_23_045129) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "group_users", force: :cascade do |t|
+    t.string "group_id"
+    t.string "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "user_id"
   end
 
   create_table "households", force: :cascade do |t|

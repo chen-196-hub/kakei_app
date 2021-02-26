@@ -1,0 +1,35 @@
+<div class="main users-index">
+  <div class="container">
+    <h1 class="users-heading">グループ一覧</h1>
+    <% @user_group.each do |group| %>
+      <%@group = Group.find_by(id: group.group_id) %>
+      <div class="users-index-item">
+        <div class="user-left"">
+          <%if session[:user_id] == @group.user_id.to_i%>
+            <%= link_to "管理", "/groups/#{group.group_id}/admin" %>
+          <% end %>
+        </div>
+        <div class="user-right">
+          <%= link_to "#{@group.name}", "/message_board/#{group.group_id}/index"%>
+        </div>
+      </div>
+    <% end %>
+    <h1 class="form-heading-2">グループ追加</h1>
+    <div class="form">
+      <%= form_tag("/groups/create") do %>
+      <table>
+        <tr>
+          <th>グループネーム:</th>
+          <td><input type="text" name="name"></td>
+        </tr>
+        <tr>
+          <th></th>
+          <td>
+            <input type="submit" value="追加" style="margin-top: 0;">
+          </td>
+        </tr>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>

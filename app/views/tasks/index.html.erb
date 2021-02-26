@@ -7,11 +7,8 @@
     <%= form_tag("/tasks/create") do %>
       <div class="form">
         <div class="form-body">
-          
               <div class="form-error">
-               
               </div>
-
           <textarea name="content"></textarea>
           <input type="submit" value="メモする">
         </div>
@@ -19,19 +16,20 @@
     <% end %>
 
     <div>
-    <% @todolist.each do |todo| %>
-      <div class="posts-index-item">
-        <div>
-          <%= link_to("✔︎", "/tasks/#{todo.id}/done") %>｜
-          <%= link_to("✖️", "/tasks/#{todo.id}/destroy") %>｜
-          <%= link_to("編集", "/tasks/#{todo.id}/edit") %>
+      <% @todolist.each do |todo| %>
+        <div class="posts-index-item">
+          <div>
+            <%= link_to("✔︎", "/tasks/#{todo.id}/done") %>｜
+            <%= link_to("編集", "/tasks/#{todo.id}/edit") %>｜
+            <%= link_to("✖️", "/tasks/#{todo.id}/destroy") %>
+            
+          </div>
+          <%=  todo.content %>
+          <div style="color: lightgray;">
+            <%=  todo.created_at %>
+          </div>
         </div>
-        <%=  todo.content %>
-        <div style="color: lightgray;">
-          <%=  todo.created_at %>
-        </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
   </div>
 </div>

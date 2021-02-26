@@ -3,6 +3,7 @@
   <head>
     <title>KakeiNet</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -18,28 +19,21 @@
         <% else %>
           <%= link_to("KakeiNet", root_path) %>
         <% end %>
-        
       </div>
       <button type="button" class="btn js-btn">
         <span class="btn-line"></span>
       </button>
-
-      
-          <div class="header-name">
-            <a>
-              <%if @current_user %>
-              <%= @current_user.name%>
-              <% end %>
-            </a>
-          </div>
-        <% if @current_user %>
+      <div class="header-name">
+        <a>
+          <%if @current_user %>
+            <%= @current_user.name%>
+          <% end %>
+        </a>
+      </div>
+      <% if @current_user %>
       <ul class="menu">
-        
         <li class="menu-list">
-          <%= link_to("伝言板", "/message_board/index") %>
-        </li>
-        <li class="menu-list">
-          <%= link_to("グループ", "/users/index") %>
+          <%= link_to("グループ", "/groups/index") %>
         </li>
         <li class="menu-list">
           <%= link_to("TODO", "/tasks/index") %>
@@ -53,7 +47,9 @@
         <li class="menu-list">
           <%= link_to(" Logout", "/logout") %>
          </li>
+      </ul>
          <% else %>
+      <ul class="menu"> 
          <li class="menu-list">
           <%= link_to("KakeiNetとは？", "/about") %>
         </li>
@@ -63,8 +59,8 @@
         <li class="menu-list">
          <%= link_to(" ログイン", "/login") %>
         </li>
-        <% end %>
       </ul>
+      <% end %> 
     </header>
     <% if flash[:notice]%>
       <div class="flash">

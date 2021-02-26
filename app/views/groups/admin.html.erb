@@ -1,0 +1,38 @@
+<div class="main posts-new">
+  <div class="container">
+    <h1 class="form-heading">管理する</h1>
+  </div>
+  <%= form_tag("/groups/#{@group.id}/update") do %>
+    <div class="form">
+      <table>
+        <tr>
+          <th colspan="2">グループ名前変更:</th>
+          <td></td>
+        </tr>
+        <tr>
+          <th style="padding-left: 10%;" colspan="2">
+            <input type="text" name="name" value="<%=@group.name%>" style="padding-left: 10%;">
+          </th>
+          <td></td>
+        </tr>
+        <tr>
+          <th colspan="2"><input type="submit" value="変更" style="margin-top: 0;" ></th>
+          <td></td>
+        </tr>
+      </table>
+    <% end %>
+    </div>
+    <div class="container">
+      <h1 class="form-heading-2">グループ削除</h1>
+      <div class="form">
+        <table>
+          <tr>
+            <th>グループを削除する</th>
+            <td>
+              <%= link_to "削除する", "/groups/#{@group.id}/destroy" , data: {confirm: "削除しますか？伝言内容は全て削除されます。"}%>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+// Place all the styles related to the groups controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+table {
+  
+  min-width: 100%;
+  border: 0px solid white;
+  // height: 50px;
+  tr {
+    padding: 20px 30px;
+    border: white;
+    height: 50px;
+    
+    border: none;
+  }
+  td{
+    padding-right: 20px;
+    text-align: right;
+    border: none;
+  }
+}

@@ -1,6 +1,17 @@
 Rails.application.routes.draw do
   
-  get 'message_board/index' => "message_board#index"
+  get 'groups/index' => "groups#index"
+  get "groups/:id/show" => "groups#show"
+  post "groups/create" => "groups#create"
+  post "groups/:id/create_user" =>"groups#create_user"
+  get "groups/:id/admin" => "groups#admin"
+  post "groups/:id/update" => "groups#update"
+  get 'groups/:id/destroy' => 'groups#destroy'
+  get "groups/:group_id/show/:id/user_destroy" => "groups#user_destroy"
+ 
+
+  get 'message_board/:id/index' => "message_board#index"
+  post 'message_board/:id/create' =>"message_board#create"
 
   get "household/edit" => "household#edit"
   post "household/update" =>"household#update"
