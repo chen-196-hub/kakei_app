@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user
-  
-
+  before_action :correct_user,{only: [:show]}
+  before_action :correct_admin_user,{only:[:admin,:destroy,:user_destroy]}
   def index
     @user_group = GroupUser.where(user_id: session[:user_id])
   end
@@ -55,7 +55,23 @@ class GroupsController < ApplicationController
     redirect_to("/groups/#{params[:group_id]}/show")
   end
 
-  
+
+  def correct_user
+    @group = Group.find_by(id: params[:id])
+    @group_users = GroupUser.where(group_id: @group.id)
+    if @group_users.find_by(user_id: @current_user.id.to_i) == nil 
+      flash[:notice] = "権限はありません"
+      redirect_to("/groups/index")
+    end
+  end
+
+  def correct_admin_user
+    @group = Group.find_by(id: params[:id])
+    if @group.user_id.to_i != session[:user_id].to_i
+      flash[:notice] = "権限はありません"
+      redirect_to("/groups/index")
+    end
+  end
 
 
 
