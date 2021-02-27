@@ -1,7 +1,8 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user
   before_action :correct_user,{only: [:show]}
-  before_action :correct_admin_user,{only:[:admin,:destroy,:user_destroy]}
+  before_action :correct_admin_user,{only:[:admin,:destroy]}
+  before_action :group_users_delect_authority,{only:[:user_destroy]}
   def index
     @user_group = GroupUser.where(user_id: session[:user_id])
   end
@@ -10,22 +11,29 @@ class GroupsController < ApplicationController
     @group_users = GroupUser.where(group_id: params[:id])
   end
   def create
-    @group = Group.new(name:params[:name],user_id:session[:user_id])
-    @group.save
-    @group.id
-    @create_group = GroupUser.new(group_id:@group.id,user_id:session[:user_id])
-    @create_group.save
-    redirect_to("/groups/index")
+      @group = Group.new(name:params[:name],user_id:session[:user_id])
+      if @group.save 
+        @create_group = GroupUser.new(group_id:@group.id,user_id:session[:user_id])
+        @create_group.save
+        redirect_to("/groups/index")
+      else
+        flash[:error] ="グループ名をつけてください"
+        redirect_to("/groups/index")
+      end
   end
   def create_user
     @user = User.find_by(email: params[:email])
-    @create_user = GroupUser.new(
-      group_id: params[:id],
-      user_id:@user.id)
-    if @create_user.save
+    if @user == nil 
+      flash[:error] = "該当するユーザーがありません"
       redirect_to("/groups/#{params[:id]}/show")
-      else
-      render("groups/#{params[:id]}/show")
+    else
+      @create_user = GroupUser.new(
+        group_id: params[:id],
+        user_id:@user.id)
+      if @create_user.save
+        flash[:notice] = "メンバー追加しました！！"
+        redirect_to("/groups/#{params[:id]}/show")
+      end
     end
   end
   def admin 
@@ -51,8 +59,13 @@ class GroupsController < ApplicationController
   def user_destroy
     @group_users = GroupUser.where(group_id: params[:group_id])
     @group_user = @group_users.find_by(user_id: params[:id])
-    @group_user.destroy
-    redirect_to("/groups/#{params[:group_id]}/show")
+    if  @group_user == nil
+      flash[:notice] = "エラー"
+      redirect_to("/groups/index")
+    else
+      @group_user.destroy
+      redirect_to("/groups/#{params[:group_id]}/show")
+    end
   end
 
 
@@ -67,12 +80,17 @@ class GroupsController < ApplicationController
 
   def correct_admin_user
     @group = Group.find_by(id: params[:id])
-    if @group.user_id.to_i != session[:user_id].to_i
+    if session[:user_id].to_i != @group.user_id.to_i
       flash[:notice] = "権限はありません"
       redirect_to("/groups/index")
     end
   end
 
-
-
+  def group_users_delect_authority
+    @group = Group.find_by(id: params[:group_id])
+    if session[:user_id].to_i != @group.user_id.to_i
+      flash[:notice] = "権限はありません"
+      redirect_to("/groups/index")
+    end
+  end
 end

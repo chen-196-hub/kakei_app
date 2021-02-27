@@ -18,9 +18,17 @@
     <div class="form">
       <%= form_tag("/groups/create") do %>
       <table>
+        <% if flash[:error] %>
         <tr>
-          <th>グループネーム:</th>
-          <td><input type="text" name="name"></td>
+          <td colspan="2" style="color: red;""><%= flash[:error]%></td>
+          <td></td>
+        </tr>
+        <% end %>
+        <tr>
+          <th>グループ名:</th>
+          <td>
+            <input type="text" name="name">
+          </td>
         </tr>
         <tr>
           <th></th>

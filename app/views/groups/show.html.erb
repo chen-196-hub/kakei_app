@@ -21,7 +21,9 @@
         <table>
           <tr>
             <th >追加したいメンバーのEmail</th>
-            <td></td>
+            <% if flash[:error]%>
+              <td style="color: red;"><%= flash[:error]%></td>
+            <% end %>
           </tr>
           <tr>
             <th style="padding-left: 10%;">

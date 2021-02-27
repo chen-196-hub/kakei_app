@@ -12,12 +12,13 @@ class UsersController < ApplicationController
     @user=User.new
   end
   def create
-    @user = User.new(
-      name: params[:name],
-      email: params[:email],
-      password: params[:password]
-    )
-    
+      @user = User.new(
+        name: params[:name],
+        email: params[:email],
+        password: params[:password],
+        password_confirmation: params[:password_confirmation]
+      )
+
     if @user.save
       @house = Household.new(user_id: @user.id)
       @house.save
