@@ -2,7 +2,16 @@
   <div class="container">
     <div class="from">
       <h1 class="form-heading">家計</h1>
-        <%= link_to "編集" , "/household/edit" %>
+      <div class="form"> 
+        <table>
+          <td style="text-align: left; padding-left: 20px;">
+          </td>
+          <td>
+            <%= link_to "編集" , "/household/edit" %>
+          </td>
+        </table>
+      </div>
+        
     </div>
     <% @kakei.errors.full_messages.each do |message| %>
           <div class="form-error">

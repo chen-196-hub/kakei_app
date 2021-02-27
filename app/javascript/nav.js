@@ -4,4 +4,7 @@ document.addEventListener("turbolinks:load", function() {
       $('.menu , .btn , .btn-line').toggleClass('open'); // メニューとバーガーの線にopenクラスをつけ外しする
     })
   });
+  $(function(){
+    setTimeout("$('.time-limit').fadeOut('slow')", 5000) 
+  })
 });

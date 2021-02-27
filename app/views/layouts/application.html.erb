@@ -24,14 +24,14 @@
         <span class="btn-line"></span>
       </button>
       <div class="header-name">
-        <a>
-          <%if @current_user %>
-            <%= @current_user.name%>
-          <% end %>
-        </a>
       </div>
       <% if @current_user %>
       <ul class="menu">
+        <li class="menu-list">
+          <%if @current_user %>
+            Hi!!<%= @current_user.name%>
+          <% end %>
+        </li>
         <li class="menu-list">
           <%= link_to("グループ", "/groups/index") %>
         </li>
@@ -63,7 +63,7 @@
       <% end %> 
     </header>
     <% if flash[:notice]%>
-      <div class="flash">
+      <div class="flash time-limit">
         <%= flash[:notice] %>
       </div>
     <% end %>

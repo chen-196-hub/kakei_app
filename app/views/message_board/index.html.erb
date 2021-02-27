@@ -4,9 +4,18 @@
     <h1 class="form-heading">
       <%= @group.name%>の伝言板
     </h1>
-    <p class="form">
-      <%= link_to "メンバー一覧", "/groups/#{@group.id}/show" %>
-    </p>
+    <div class="form">
+      <div>
+        <table>
+          <td style="text-align: left; padding-left: 20px;">
+            <%= link_to "戻る" , "/groups/index" %>
+          </td>
+          <td>
+            <%= link_to "メンバー一覧" , "/groups/#{@group.id}/show" %>
+          </td>
+        </table>
+      </div>
+    </div>
     <%= form_tag("/message_board/#{@group.id}/create") do %>
       <div class="form">
         <div class="form-body">
@@ -14,21 +23,21 @@
           <input type="submit" value="メモする">
         </div>
       </div>
-    <% end %>
-    <div>
-      <% @messages.each do |message| %>
-        <%@user = User.find_by(id:message.user_id)%>
-        <div class="posts-index-item">
-         <div>
-          <%=@user.name%>:
-         </div>
-          <%=  message.content %>
-          <div style="color: lightgray;">
-            <%=  message.created_at %>
-          </div>
-        </div>
       <% end %>
-    </div>
+        <div>
+          <% @messages.each do |message| %>
+            <%@user=User.find_by(id:message.user_id)%>
+              <div class="posts-index-item">
+                <div>
+                  <%=@user.name%>:
+                </div>
+                <%= message.content %>
+                  <div style="color: lightgray;">
+                    <%= message.created_at %>
+                  </div>
+              </div>
+              <% end %>
+        </div>
   </div>
-  </div>
+</div>
 </div>

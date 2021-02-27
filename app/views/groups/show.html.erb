@@ -1,6 +1,15 @@
 <div class="main users-index">
   <div class="container">
     <h1 class="users-heading"><%=@group.name%>のメンバー</h1>
+    <div class="form"> 
+      <table>
+        <td style="text-align: left; padding-left: 20px;">
+          <%= link_to "戻る" , "/message_board/#{@group.id}/index" %>
+        </td>
+        <td>
+        </td>
+      </table>
+    </div>
     <% @group_users.each do |user| %>
       <%@user = User.find_by(id:user.user_id)%>
       <div class="users-index-item">
