@@ -29,15 +29,15 @@
         <%= form_tag("/groups/#{@group.id}/create_user") do %>
         <table>
           <tr>
-            <th >追加したいメンバーのEmail</th>
+            <td >追加したいメンバーのEmail</td>
             <% if flash[:error]%>
               <td style="color: red;"><%= flash[:error]%></td>
             <% end %>
           </tr>
           <tr>
-            <th style="padding-left: 10%;">
+            <td style="padding-left: 10%;">
               <input type="text" name="email" placeholder="ex:123@example.com" style="padding-left: 10%;">
-            </th>
+            </td>
             <td>
               <input type="submit" value="追加" style="margin-top: 0;" >
             </td>
