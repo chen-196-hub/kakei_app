@@ -2,6 +2,7 @@ class MessageBoardController < ApplicationController
   before_action :authenticate_user
   before_action :correct_user,{only:[:index,:create]}
   before_action :message_edit_authority,{only:[:edit,:update,:destroy]}
+  
   def index
     @group = Group.find_by(id: params[:id])
     @messages = MessageBoard.where(group_id:params[:id]).order(created_at: :desc)
