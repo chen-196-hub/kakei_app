@@ -19,13 +19,6 @@ ActiveRecord::Schema.define(version: 2021_02_25_085356) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "dos", force: :cascade do |t|
-    t.string "donelist"
-    t.text "content"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "group_users", force: :cascade do |t|
     t.string "group_id"
     t.string "user_id"

@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   get 'message_board/:id/index' => "message_board#index"
   post 'message_board/:id/create' =>"message_board#create"
+  get "message_board/:group_id/:id/edit" =>"message_board#edit"
+  post "message_board/:group_id/:id/update"=>"message_board#update"
+  get "message_board/:group_id/:id/destroy"=>"message_board#destroy"
 
   get "household/edit" => "household#edit"
   post "household/update" =>"household#update"

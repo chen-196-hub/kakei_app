@@ -27,16 +27,22 @@
         <div>
           <% @messages.each do |message| %>
             <%@user=User.find_by(id:message.user_id)%>
-              <div class="posts-index-item">
-                <div>
-                  <%=@user.name%>:
-                </div>
-                <%= message.content %>
+              <% if message.user_id.to_i == session[:user_id] %>
+              <div class="posts-index-item" style="text-align: right;">
+                  <%= link_to("編集", "/message_board/#{@group.id}/#{message.id}/edit") %>｜
+                  <%= link_to("✖️", "/message_board/#{@group.id}/#{message.id}/destroy",data: {confirm: "本当に削除しますか？"}) %>
+                <% else %>
+                <div class="posts-index-item">
+                  <div>
+                    <%=@user.name%>:
+                  </div>
+                <% end %>
+                <div><%= message.content %></div> 
                   <div style="color: lightgray;">
-                    <%= message.created_at %>
+                    <%= message.created_at.strftime("%Y-%m-%d %H:%M") %>
                   </div>
               </div>
-              <% end %>
+          <% end %>
         </div>
   </div>
 </div>
