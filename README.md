@@ -1,6 +1,4 @@
-# README
-
-## [KakeiNet](https://kakei-net.herokuapp.com/)
+# [KakeiNet](https://kakei-net.herokuapp.com/)
 
 ## アプリケーションの概要
 
