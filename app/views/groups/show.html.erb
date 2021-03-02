@@ -15,7 +15,7 @@
       <div class="users-index-item">
         <div class="user-left">
           <% if session[:user_id] == @group.user_id.to_i && user.user_id.to_i != session[:user_id] %>
-          <%= link_to "✖️", "/groups/#{@group.id}/show/#{user.user_id}/user_destroy" , data: {confirm: "このユーザーをグループメンバーから外せせますか？"}%>
+          <%= link_to "✖️", "/groups/#{@group.id}/show/#{user.user_id}/user_destroy" , data: {confirm: "このユーザーをグループメンバーから外しますか？"}%>
           <% end %>
         </div>
         <div class="user-right">
