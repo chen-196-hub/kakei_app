@@ -1,5 +1,7 @@
 # [KakeiNet](https://kakei-net.herokuapp.com/)
 
+https://kakei-net.herokuapp.com/
+
 ## アプリケーションの概要
 
 このアプルは家計の計算、TODOリスト、伝言板などの機能を持つウェブサービスです。
