@@ -33,3 +33,6 @@ https://kakei-net.herokuapp.com/
 - フレームワーク：Ruby on Rails 6.1.3
 - インフラ：Heroku
 - データペース：PostgreSQL
+
+## ユースケース図
+![image](https://github.com/chen-196-hub/img/blob/85325e395e268510a83b2d64cc731f4f2550df2b/KakeiNet%E3%81%AE%E3%83%A6%E3%83%BC%E3%82%B9%E3%82%B1%E3%83%BC%E3%82%B9%E5%9B%B3.png)
