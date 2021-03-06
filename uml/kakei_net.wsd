@@ -48,7 +48,7 @@ package KakeiNet {
     usecase "家計計算" as household
     usecase "編集" as hhedit
   } 
-note "投稿をDONE-LISTに送る" as N
+note "投稿をDONE-LISTに移す" as N
 note "DONE-LISTの投稿をTODO-LISTに戻す" as N2
 
 }
