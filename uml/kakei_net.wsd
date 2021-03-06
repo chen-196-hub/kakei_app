@@ -1,0 +1,107 @@
+@startuml
+title KakeiNetのユースケース図
+left to right direction
+skinparam actorStyle awesome
+actor User as u
+
+
+package KakeiNet {
+ 
+
+  package グループ {
+    usecase "グループ一覧" as groups
+    usecase "グループ作成" as mkgroup
+    usecase "メンバー一覧" as members
+    usecase "メンバー一覧" as othermembers
+    usecase "グループ管理機能" as group_adim
+    
+    usecase "グループ名変更" as group_name_update
+    usecase "グループ削除" as group_destroy
+    usecase "ユーザー招待" as user_invite
+    usecase "ユーザー削除" as user_destroy
+    usecase "伝言板" as message_board
+    usecase "伝言板" as other_message_board
+
+    usecase "投稿機能" as ms_post
+    usecase "投稿削除機能" as ms_destroy
+
+    usecase "userのグループ" as owngroupedit
+    usecase "他のuserのグループ" as othergroups
+    
+    note "ユーザー作成者のみ" as N3
+  }
+  package TODO {
+    usecase "投稿機能" as post
+    usecase "投稿一覧" as posts
+    usecase "完了✔︎機能" as finish
+    usecase "編集機能" as edit
+    usecase "削除機能" as destroy
+
+  
+  }
+  package DONE {
+    usecase "一覧機能" as done
+    usecase "戻す機能" as recover
+    usecase "削除機能" as donedestroy
+  } 
+  package 家計 {
+    usecase "家計計算" as household
+    usecase "編集" as hhedit
+  } 
+note "投稿をDONE-LISTに送る" as N
+note "DONE-LISTの投稿をTODO-LISTに戻す" as N2
+
+}
+
+posts  ..> finish:<<include>>
+posts ..> edit :<<include>>
+posts ..> destroy :<<include>>
+
+household ..> hhedit :<<include>>
+hhedit ..> household
+
+done ..> recover :<<include>>
+done ..> donedestroy :<<include>>
+
+groups ..> owngroupedit :<<include>>
+
+groups ..> othergroups :<<include>>
+groups ..> group_adim :<<include>>
+
+
+othergroups ..> othermembers :<<include>>
+othergroups ..> other_message_board :<<include>>
+
+owngroupedit ..> members :<<include>>
+owngroupedit ..> message_board  :<<include>>
+
+
+message_board ..>  ms_post :<<include>>
+message_board ..>  ms_destroy :<<include>>
+other_message_board ..>  ms_post :<<include>>
+other_message_board ..>  ms_destroy :<<include>>
+
+
+members ..> user_invite :<<include>>
+members ..> user_destroy :<<include>>
+group_adim ..> group_name_update :<<include>>
+group_adim ..> group_destroy :<<include>>
+
+
+(finish).. N 
+(N) ..> done
+
+(recover).. N2
+(N2) ..> posts
+
+(group_adim) .. N3
+(N3) .. owngroupedit
+
+u --> groups
+u --> posts
+u --> post
+u --> done
+u --> household
+u --> mkgroup
+
+@enduml
