@@ -4,7 +4,7 @@ https://kakei-net.herokuapp.com/
 
 ## アプリケーションの概要
 
-このアプルは家計の計算、TODOリスト、伝言板などの機能を持つウェブサービスです。
+このアプリは家計の計算、TODOリスト、伝言板などの機能を持つウェブサービスです。
 
 ## アプリケーションの機能一覧
 - 登録機能
@@ -13,21 +13,21 @@ https://kakei-net.herokuapp.com/
   - ログアウト
 - Todo list機能
   - 投稿機能
-  - 完了チェック”✔︎”機能（Done listに写す）
+  - 完了チェック”✔︎”機能（Done listに移す）
   - 編集機能
   - 削除機能
 - Done list機能
-  - 戻す機能（掲示をTodo listに返す）
+  - 戻す機能（掲示をTodo listに戻す）
   - 削除機能
 - 家計機能
   - 支出、収入計算機能
 - グループ
   - グループ一覧機能
-  - グループ伝言機能 
+  - グループ伝言機能
   - 新規グループ作成機能
   - クループの管理・削除機能
   - グループのメンバー追加・削除機能
-  
+
 ## アプリケーション内で使用している技術
 - 言語：Ruby 2.7.2
 - フレームワーク：Ruby on Rails 6.1.3
@@ -35,4 +35,4 @@ https://kakei-net.herokuapp.com/
 - データペース：PostgreSQL
 
 ## ユースケース図
-![image](https://github.com/chen-196-hub/img/blob/85325e395e268510a83b2d64cc731f4f2550df2b/KakeiNet%E3%81%AE%E3%83%A6%E3%83%BC%E3%82%B9%E3%82%B1%E3%83%BC%E3%82%B9%E5%9B%B3.png)
+![image](https://github.com/chen-196-hub/kakei_app/blob/349df895234e027115402c88e98e5d528c069c22/uml/kakei_net/KakeiNet%E3%81%AE%E3%83%A6%E3%83%BC%E3%82%B9%E3%82%B1%E3%83%BC%E3%82%B9%E5%9B%B3.png)
