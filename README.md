@@ -35,4 +35,4 @@ https://kakei-net.herokuapp.com/
 - データペース：PostgreSQL
 
 ## ユースケース図
-![image](https://github.com/chen-196-hub/kakei_app/blob/349df895234e027115402c88e98e5d528c069c22/uml/kakei_net/KakeiNet%E3%81%AE%E3%83%A6%E3%83%BC%E3%82%B9%E3%82%B1%E3%83%BC%E3%82%B9%E5%9B%B3.png)
+![image](https://github.com/chen-196-hub/kakei_app/blob/af6b7bd30c609682385b06e9c99d43088021235b/uml/kakei_net/KakeiNet%E3%81%AE%E3%83%A6%E3%83%BC%E3%82%B9%E3%82%B1%E3%83%BC%E3%82%B9%E5%9B%B3.png)
