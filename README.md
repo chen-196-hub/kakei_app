@@ -2,6 +2,10 @@
 
 https://kakei-net.herokuapp.com/
 
+- 訪問者アカウント用意しております
+  - email ：`test@ex.com`
+  - password :`test123`
+
 ## アプリケーションの概要
 
 このアプリは家計の計算、TODOリスト、伝言板などの機能を持つウェブサービスです。
