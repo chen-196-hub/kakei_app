@@ -1,3 +1,5 @@
+⚠️ 12月3日現在　heroku有料になるため、下記リンクが遷移できなくなるためご注意ください。
+
 # [KakeiNet](https://kakei-net.herokuapp.com/)
 
 https://kakei-net.herokuapp.com/
